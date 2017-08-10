@@ -47,6 +47,23 @@ def stn_dev(filename):
     stn_dev = round(math.sqrt(variance), 1)
     return stn_dev
 
+def evaluateClass(avrg, total_avrg, std_dev, sd):
+    '''
+    evaluateClass(avrg, total_avrg, std_dev, sd) -> None
+    avrg : 반 성적 평균
+    total_avrg : 학년 전체 성적 평균
+    std_dev : 반의 표준 편차
+    sd : 원하는 표준 편차 기준
+    '''
+    if avrg <total_avrg and std_dev >sd:
+        print("성적이 너무 저조하고 학생들의 실력 차이가 너무 크다.")
+    elif avrg > total_avrg and std_dev >sd:
+        print("성적은 평균이상이지만 학생들 실력 차이가 크다. 주의 요망!")
+    elif avrg < total_avrg and std_dev <sd:
+        print("학생들간 실력차는 나지 않으나 성적이 너무 저조하다. 주의 요망!")
+    elif avrg > total_avrg and std_dev <sd:
+        print("성적도 평균 이상이고 학생들의 실력차도 크지 않다.")
+
 # if __name__ == "__main__":
     # 만약 이것이 들어가있는 파일을 메인 실행 파일로 실행하면 if 문 하위 실행문들을 실행한다
     # 하지만 이것이 들어가있는 파일을 module로 import하는 경우에는 if 문 하위 실행문들을 실행하지 않는다
